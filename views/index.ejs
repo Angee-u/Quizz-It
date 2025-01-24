@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizz It</title>
+
+  <link rel="stylesheet" href="styles/main.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Tenor+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <div class="quizz-menu">
+      <h1> Quizz it </h1>
+
+      <form id="category-form" action="/start-game" method="post">
+        
+        <div class="category-selector">
+          <select name="category" id="category">
+            <option value="" disabled selected> Choose a category</option>
+            <option value="9">General</option>
+            <option value="23">History</option>
+            <option value="27">Animals</option>
+            <option value="20">Mythology</option>
+            <option value="21">Sports</option>
+            <option value="15">Video Games</option>
+          </select>
+        </div>
+        
+        <button id="start-quizz" type="submit"> START </button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

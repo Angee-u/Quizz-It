@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizz It</title>
+
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+  <body>
+
+    <main>
+      <div id="quizz-card">
+        <% questions.forEach((oneQuestion, index) => { %>
+          <div class="question-container <%= index === 0 ? 'active' : '' %>">
+            <h2 class="question"><%= oneQuestion.question %></h2>
+    
+            <div class="btn-wrapper">
+              <% oneQuestion.answers.forEach(answer => { %>
+                <button class="btn-answer"> <%= answer %></button>
+              <% }) %>
+            </div>
+          </div>
+        <% }) %>
+        
+        <button id="next-question" disabled> Next Question </button>
+
+      </div>
+  </main>
+
+    <script>
+      const questions = <%- JSON.stringify(questions) %>;
+    </script>
+
+    <script src="game.js"></script>
+  </body>
+</html>

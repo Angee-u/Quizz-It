@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizz It</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  
+  <main id="results">
+    <h2>Quizz results</h2>
+
+    <p>You got <span id="correct-answers"><%= correctCount %></span> out of <%= totalQuestions %> questions.</p>
+
+    <div id="result-wrapper">
+      <% questions.forEach((question, index) => { %>
+        <div class="results-cards">
+          <div class="result-text">
+            <h2><%= question.question %></h2>
+    
+            <div class="btn-wrapper">
+              <% question.answers.forEach(answer => { %>
+                <% const isUserAnswer = answer?.trim()?.toLowerCase() === userAnswers[index]?.trim()?.toLowerCase(); %>
+                <% const isCorrect = answer?.trim()?.toLowerCase() === question.correct?.trim()?.toLowerCase(); %>
+    
+                <button class="btn-answer 
+                  <%= isUserAnswer ? 'user-answer' : '' %> 
+                  <%= isCorrect ? 'btn-correct' : 'btn-incorrect' %>">
+                  <%= answer %>
+                </button>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    
+
+    <button id="btn-again" onclick="window.location.href='/'">Play Again</button>
+  </main>
+
+</body>
+</html>
